@@ -7,64 +7,54 @@
 </head>
 <body>
     <script>
-        // DAta Types Introduction
-
-        // string
-        let name="Rohini"
-        console.log("Type of name is: ",typeof name)
-
-        // number
-        let num= 125485
-        console.log("Type of num is: ",typeof num)
-
-        // boolean
-        let x=10
-        let y=5
-        if(x==y){
-            console.log("Pirnt true")
+        let A = 2;
+        if (A>0){
+            console.log("the number is integer");
+        }
+        else if (A<0){
+            console.log("this is number");
         }
         else{
-            console.log("Type of value is: ","False")
+            console.log("the number ");
         }
 
-        // undefined
-        let unvalue;
-        console.log("Type of unvalue is: ",typeof unvalue)
-
-        // null
-        const var1=null
-        if(var1){
-            console.log('var1 is not null')
+        let XYZ = prompt("enter your number");
+        switch (XYZ){
+            case (xyz = 1) :
+                console.log("monday");
+                break;
+            case (xyz = 2) :
+                console.log("tuesday");
+                break;
+            case (xyz = 3) :
+                console.log("wednesday");
+                break;
+            case (xyz = 4) :
+                console.log("thursday");
+                break;
+            case (xyz = 5):
+                console.log("friday");
+                break;
+            case (xyz = 6):
+                console.log("saturday");
+                break;
+            case (xyz = 7):
+                console.log("sunday");
+                break;
         }
-        else{
-            console.log('var is null')
+
+        let age = 18;
+        let x = age>=18?"major":"minor";
+        console.log(x);
+
+        for(i=0;i<=10;i++){
+            console.log(i);
         }
 
-        console.log("===================")
-        // mathematical Operators
+        for(j=5;j>0;j--){
+              console.log(j);
+        }
 
-        let number1=100
-        let number2=50
-        console.log(`The mathematical opetaors of 100 and 50 is: `)
-        console.log("number1+number2:",number1+number2)
-        console.log("number1-number2:",number1-number2)
-        console.log("number1*number2:",number1*number2)
-        console.log("number1/number2:",number1/number2)
-        console.log("number1%number2:",number1%number2)
-        console.log("number1**number2:",number1**number2)
-
-        console.log("==========================")
-        // Comparator Opertors
-
-       let a=100
-       let b=50
-       console.log(`this the == operator of ${a} and ${b}`,a==b );
-       console.log(`this the === operator of ${a} and ${b}`,a===b );
-       console.log(`this the != operator of ${a} and ${b}`,a!=b );
-       console.log(`this the <= operator of ${a} and ${b}`,a<=b );
-       console.log(`this the >= operator of ${a} and ${b}`,a>=b );
-       console.log(`this the > operator of ${a} and ${b}`,a>b );
-       console.log(` this is the operator of ${a} and ${b}`,a<b);
     </script>
 </body>
 </html>
