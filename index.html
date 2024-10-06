@@ -1,60 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        let A = 2;
-        if (A>0){
-            console.log("the number is integer");
-        }
-        else if (A<0){
-            console.log("this is number");
-        }
-        else{
-            console.log("the number ");
-        }
+        console.log("Functions without Parameters:")
+      // Functions without Parameters
+     function greet() {
+        console.log("Hello,World!");
+      }
+     greet();
+console.log("=====================")
+     console.log("Functions with Parameters:")
+      //   Functions with Parameters
+     function addNumbers(a, b) {
+        addition = a + b;
+        console.log(addition);
+      }
+      addNumbers(16,25);
 
-        let XYZ = prompt("enter your number");
-        switch (XYZ){
-            case (xyz = 1) :
-                console.log("monday");
-                break;
-            case (xyz = 2) :
-                console.log("tuesday");
-                break;
-            case (xyz = 3) :
-                console.log("wednesday");
-                break;
-            case (xyz = 4) :
-                console.log("thursday");
-                break;
-            case (xyz = 5):
-                console.log("friday");
-                break;
-            case (xyz = 6):
-                console.log("saturday");
-                break;
-            case (xyz = 7):
-                console.log("sunday");
-                break;
-        }
+      console.log("=================================")
+      console.log("Functions with Return Statements:")
+      //   Functions with Return Statements
+     function multiply(x, y) {
+        return x * y;
+      }
+      let result=multiply(165,250)
+      console.log(result)
+      console.log("============================")
+      console.log(" Combining Functions:")
+      //   Combining Functions
+     
+      function calculateRectangleArea(length, width) {
+        return multiply(length, width);
+      }
+      var length = 150;
+      var width = 180;
+      var area = calculateRectangleArea(length, width);
+      console.log(`The area of the rectangle is: ${area}`);
 
-        let age = 18;
-        let x = age>=18?"major":"minor";
-        console.log(x);
-
-        for(i=0;i<=10;i++){
-            console.log(i);
-        }
-
-        for(j=5;j>0;j--){
-              console.log(j);
-        }
-
+      console.log("===================================")
+      console.log("Default PArameters:")
+      // Default Parameters
+     
+      function greetUser(name) {
+        console.log(`hello , ${name}!`);
+      }
+      greetUser("Welcome Sheshadri");
     </script>
-</body>
+  </body>
 </html>
