@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .spacing{
+            margin-top: 50px;
+        }
+        #getting_by_id{
+            font-size: 40px;
+            background-color: black;
+            color: black;
+        }
+        .getting_by_class{
+            font-size: 25px;
+            color: aquamarine;
+            text-align: center;
+            /* margin-top: 30px; */
+        }
+        li{
+            list-style-type: none;
+        }
+        h1{
+            text-align: center;
+            margin-top: 50px;
+        }
+        .changing_styles{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p id="getting_by_id">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus quae 
+        qui eius officia harum , culpa labore earum quidem!</p>
+    
+    <div class="container">
+        <ul>
+            <li class="getting_by_class">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tempora?</li>
+            <li class="getting_by_class">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tempora?</li>
+            <li class="getting_by_class">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tempora?</li>
+            <li class="getting_by_class">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, tempora?</li>
+        </ul>
+    </div>
+
+    <h1>This is a Heading tag by using JS</h1>
+
+    <h2 style="text-align: center;margin-top: 50px;">This is a headiing 2 by using Query Selector</h2>
+    
+    <header class="changing_styles">This is the last one of the assesment with changing styles of Selected Elements</header>
+    <script>
+        // Select Element by ID
+        document.getElementById("getting_by_id").style.color="yellow"
+        document.getElementById("getting_by_id").style.backgroundColor="green"
+
+        // Select Element by Class Name
+        document.getElementsByClassName("getting_by_class")[0].style.color="red"
+        document.getElementsByClassName("getting_by_class")[1].style.color="blue"
+        document.getElementsByClassName("getting_by_class")[2].style.color="orange"
+
+        // Select Elements by Tag Name
+
+        document.getElementsByTagName("h1")[0].style.border="5px solid green"
+
+        // Select Elemnts by Query Selectors
+        document.querySelector("h2").style.fontStyle="oblique"
+
+        // select Elemnts by QuerySelector All
+
+        document.querySelectorAll(".getting_by_class")[0].style.margin="30px"
+        document.querySelectorAll(".getting_by_class")[1].style.margin="30px"
+        document.querySelectorAll(".getting_by_class")[2].style.margin="30px"
+        document.querySelectorAll(".getting_by_class")[3].style.margin="30px"
+       
+        // Changing Styles of Selected Elements
+
+       lastone= document.querySelector(".changing_styles")
+       lastone.style.backgroundColor="blue"
+       lastone.style.fontSize="30px"
+       lastone.style.margin="30px"
+       lastone.style.fontStyl="italic"
+  </script>
+</body>
+</html>
