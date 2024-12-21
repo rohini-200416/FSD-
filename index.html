@@ -1,55 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <body>
+    <style>
+        body{
+            background-color: gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            width: 700px;
+            height: 100vh;
+            background-color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        .role{
+            text-align: center;
+            padding: 10px;
+        }
+        .enter{
+            text-align: center;
+            font-size: 20px;
+            color: gray;
+        }
+        .billing{
+            font-size: 20px;
+            font-weight: bold;
+            margin: 20px;
+        }
+        #billamount , #cashgiven{
+            width:650px;
+            border-radius: 10px;
+            height: 40px;
+            margin: 20px;
+            background-color: aliceblue;
+            border: none;
+        }
+        .Check{
+            width:650px;
+            border-radius: 10px;
+            height: 40px;
+            margin: 20px;
+            background-color:blue;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="role">Pay Role Management</h1>
+        <p class="enter">Enter the bill amount and the cash given by the customer and customer and know the minimum number of notes to return</p>
+        <label for="Bill amount" class="billing"> Enter the bill amount</label>
+        <input type="number" name="Enter the bill amount" id="billamount"  placeholder="Enter the bill amount"> 
+        <label for="Cash given" class="billing">Cash Given</label>
+        <input type="number" name="Cash given" id="cashgiven" placeholder="Enter the cash given mode">
+        <button onclick="calculateChange()" class="Check">Check</button> 
+        <div class="return">
+            <h2 style="text-align: center;">Return Change</h2>
+        </div>
+        <div id="message" class="error"></div>
+        <table id="changeTable" style="display:none;">
+            <thead>
+                <tr>
+                    <th>NoOfNotes</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
     <script>
-        console.log("Functions without Parameters:")
-      // Functions without Parameters
-     function greet() {
-        console.log("Hello,World!");
-      }
-     greet();
-console.log("=====================")
-     console.log("Functions with Parameters:")
-      //   Functions with Parameters
-     function addNumbers(a, b) {
-        addition = a + b;
-        console.log(addition);
-      }
-      addNumbers(16,25);
+        function calculateChange(){
+            const billAmount=document.getElementById("billamount").value;
+            const cashGiven=document.getElementById("cashgiven").value;
+            const message=document.getElementById("message");
+            const changeTable=document.getElementById("changeTable")
+            const tbody=changeTable.querySelector('tbody');
+            message.textContent=" ";
+            message.className="error";
+            tbody.innerHTML=" "
+            changeTable.style.display="none";
 
-      console.log("=================================")
-      console.log("Functions with Return Statements:")
-      //   Functions with Return Statements
-     function multiply(x, y) {
-        return x * y;
-      }
-      let result=multiply(165,250)
-      console.log(result)
-      console.log("============================")
-      console.log(" Combining Functions:")
-      //   Combining Functions
-     
-      function calculateRectangleArea(length, width) {
-        return multiply(length, width);
-      }
-      var length = 150;
-      var width = 180;
-      var area = calculateRectangleArea(length, width);
-      console.log(`The area of the rectangle is: ${area}`);
-
-      console.log("===================================")
-      console.log("Default PArameters:")
-      // Default Parameters
-     
-      function greetUser(name) {
-        console.log(`hello , ${name}!`);
-      }
-      greetUser("Welcome Sheshadri");
+            if(isNaN(billAmount) || isNaN(cashGiven)){
+                message.textContent="Please Enter Valid Amount";
+                return;
+            }
+            if(cashGiven<billAmount){
+                message.textContent="Cash Given is less than bill amount";
+                return;
+            }
+            if (cashGiven === billAmount) {
+                message.textContent = "No change required.";
+                message.className = "success";
+                return;
+            }
+            var NoOfNotes=[2000 , 500, 100, 20, 10 , 5, 1]
+            let change=cashGiven - billAmount;
+            NoOfNotes.forEach(NoOfNotes=>{
+                const Notes=Math.floor(change/NoOfNotes);
+                if (Notes>0){
+                    const row=document.createElement('tr');
+                    row.innerHTML=`<td>${NoOfNotes}</td><td>${Notes}</td>`;
+                    tbody.appendChild(row);
+                }
+                change %= NoOfNotes;
+            })
+            changeTable.style.display="table";
+        }
     </script>
-  </body>
+</body>
 </html>
